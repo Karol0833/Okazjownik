@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OKAZJOWNIK — najlepsze okazje w jednym miejscu</title>
+<style>
+:root{--red:#ff2028;--dark:#07101a;--text:#101827;--muted:#667085;--bg:#f7f8fa;--card:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:var(--bg)}
+a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 22px}
+header{background:#050b12;color:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid #202a36}
+.nav{height:68px;display:flex;align-items:center;gap:34px}.brand{font-size:25px;font-weight:900;letter-spacing:-1px;white-space:nowrap}.brand span{color:var(--red)}
+.brand small{display:block;font-size:11px;color:#aeb7c2;font-weight:500;letter-spacing:0;margin-top:-2px}
+nav{display:flex;gap:26px;font-size:14px;margin-left:auto}nav a:hover{color:#ff4b51}
+.search{width:220px;background:#1b2531;border:1px solid #2d3947;border-radius:24px;padding:11px 15px;color:white;outline:none}
+.hero{background:radial-gradient(circle at 78% 35%,#263748,#07101a 52%,#04090e);color:#fff;overflow:hidden}
+.hero-inner{min-height:410px;display:flex;align-items:center;position:relative}
+.hero-copy{max-width:570px;padding:55px 0}.eyebrow{color:#ff434a;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:13px}
+h1{font-size:58px;line-height:1.02;margin:12px 0 20px;letter-spacing:-2.5px}h1 span{color:var(--red)}
+.hero p{font-size:17px;line-height:1.6;color:#d4dbe3;max-width:520px}.btn{display:inline-block;background:var(--red);color:#fff;padding:14px 21px;border-radius:9px;font-weight:800;border:0;cursor:pointer}.btn:hover{filter:brightness(1.08)}
+.hero-art{position:absolute;right:-70px;bottom:-45px;width:570px;height:350px;background:linear-gradient(145deg,#1e2d3b,#0c141d);border-radius:28px 28px 0 0;transform:rotate(-3deg);box-shadow:0 35px 70px #0008}
+.hero-art:before{content:"";position:absolute;width:330px;height:205px;background:linear-gradient(135deg,#161d28,#0b1118);border:7px solid #303c49;border-radius:12px;left:105px;top:38px;transform:skew(-9deg);box-shadow:0 15px 25px #0008}
+.hero-art:after{content:"OKAZJE";position:absolute;left:165px;top:110px;color:#ff2931;font-weight:900;font-size:35px;transform:rotate(-3deg)}
+section{padding:42px 0}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.section-head h2{margin:0;font-size:28px}.section-head p{margin:6px 0 0;color:var(--muted)}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.cat{background:white;border:1px solid #e3e7ec;border-radius:14px;padding:20px 10px;text-align:center;cursor:pointer;transition:.2s}.cat:hover,.cat.active{transform:translateY(-3px);border-color:#b9c2cc;box-shadow:0 10px 25px #1a253014}.cat-icon{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;font-size:27px}.cat:nth-child(1) .cat-icon{background:#ece8ff}.cat:nth-child(2) .cat-icon{background:#e4f4ff}.cat:nth-child(3) .cat-icon{background:#e7f8ea}.cat:nth-child(4) .cat-icon{background:#ffe8e9}.cat:nth-child(5) .cat-icon{background:#fff1d9}.cat:nth-child(6) .cat-icon{background:#ffe5f1}.cat b{font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{background:var(--card);border:1px solid #e3e7ec;border-radius:14px;overflow:hidden;position:relative;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 15px 35px #15203314}.discount{position:absolute;top:12px;left:12px;background:var(--red);color:white;border-radius:6px;padding:5px 8px;font-size:12px;font-weight:900;z-index:2}.visual{height:205px;background:linear-gradient(145deg,#f4f6f8,#e9edf1);display:grid;place-items:center;font-size:82px}.info{padding:15px}.info h3{font-size:15px;margin:0 0 5px}.desc{font-size:12px;color:var(--muted);height:31px}.prices{margin:11px 0}.price{font-size:21px;font-weight:900;color:var(--red)}.old{font-size:12px;color:#98a1ad;text-decoration:line-through;margin-left:7px}.deal{width:100%;padding:11px;font-size:13px}
+.banner{background:#07101a;color:#fff;border-radius:16px;padding:25px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:center}.banner-item{display:flex;gap:14px;align-items:center}.banner-icon{font-size:32px}.banner b{display:block}.banner small{color:#aeb7c2}
+footer{background:#050b12;color:#fff;margin-top:35px;padding:38px 0}.footer-row{display:flex;justify-content:space-between;gap:25px;align-items:center}.muted{color:#98a4b3;font-size:12px}.footer-links{display:flex;gap:20px;font-size:13px}
+.empty{display:none;text-align:center;padding:40px;color:var(--muted)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(3,1fr)}.hero-art{opacity:.35;right:-180px}.hero-copy{position:relative;z-index:2}nav{display:none}}
+@media(max-width:560px){h1{font-size:42px}.grid{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.search{display:none}.banner{grid-template-columns:1fr}.footer-row{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+<a class="brand" href="#">🔥 OKAZJ<span>OWNIK</span><small>Najlepsze okazje w jednym miejscu</small></a>
+<nav><a href="#home">Strona główna</a><a href="#categories">Kategorie</a><a href="#deals">Okazje</a><a href="#about">O nas</a></nav>
+<input id="search" class="search" placeholder="Szukaj okazji..." aria-label="Szukaj">
+</div></header>
+
+<main id="home">
+<section class="hero"><div class="container hero-inner">
+<div class="hero-copy"><div class="eyebrow">Codziennie nowe okazje</div><h1>Najlepsze okazje<br><span>znalezione</span> w sieci</h1>
+<p>Wybieramy ciekawe produkty, promocje i przeceny z popularnych sklepów. Oszczędzaj czas i pieniądze — wszystko w jednym miejscu.</p>
+<a class="btn" href="#deals">Zobacz najnowsze okazje →</a></div><div class="hero-art"></div>
+</div></section>
+
+<section id="categories"><div class="container">
+<div class="section-head"><div><h2>▦ Kategorie</h2><p>Wybierz kategorię, która Cię interesuje.</p></div></div>
+<div class="categories">
+<div class="cat active" data-cat="all"><div class="cat-icon">✨</div><b>Wszystko</b></div>
+<div class="cat" data-cat="Moda"><div class="cat-icon">👕</div><b>Moda</b></div>
+<div class="cat" data-cat="Obuwie"><div class="cat-icon">👟</div><b>Obuwie</b></div>
+<div class="cat" data-cat="Elektronika"><div class="cat-icon">💻</div><b>Elektronika</b></div>
+<div class="cat" data-cat="Sport"><div class="cat-icon">🏋️</div><b>Sport</b></div>
+<div class="cat" data-cat="Dom"><div class="cat-icon">🏠</div><b>Dom</b></div>
+</div></div></section>
+
+<section id="deals"><div class="container">
+<div class="section-head"><div><h2>🔥 Najlepsze okazje</h2><p>Przykładowe produkty — później podmienimy je na prawdziwe oferty afiliacyjne.</p></div></div>
+<div id="grid" class="grid"></div><div id="empty" class="empty">Nie znaleziono produktów.</div>
+</div></section>
+
+<section><div class="container"><div class="banner">
+<div class="banner-item"><div class="banner-icon">🚚</div><div><b>Promocje i okazje</b><small>Wybieramy ciekawe ceny</small></div></div>
+<div class="banner-item"><div class="banner-icon">🏷️</div><div><b>Wiele kategorii</b><small>Moda, elektronika, sport i więcej</small></div></div>
+<div class="banner-item"><div class="banner-icon">🔥</div><div><b>OKAZJE CZEKAJĄ!</b><small>Sprawdzaj regularnie</small></div></div>
+</div></div></section>
+
+<section id="about"><div class="container"><div class="section-head"><div><h2>⭐ O OKAZJOWNIKU</h2><p>Prosty katalog ciekawych produktów i promocji. Linki do ofert mogą być linkami afiliacyjnymi.</p></div></div></div></section>
+</main>
+
+<footer><div class="container footer-row"><div><div class="brand">🔥 OKAZJ<span>OWNIK</span></div><div class="muted">Najlepsze okazje w jednym miejscu</div></div><div class="footer-links"><a href="#home">Start</a><a href="#categories">Kategorie</a><a href="#about">O nas</a></div><div class="muted">© 2026 OKAZJOWNIK</div></div></footer>
+
+<script>
+const products=[
+ {cat:"Obuwie",name:"Sneakersy sportowe",desc:"Klasyczny model na co dzień",price:"129,00 zł",old:"219,00 zł",off:"-41%",icon:"👟"},
+ {cat:"Moda",name:"Bluza sportowa",desc:"Wygodna i uniwersalna",price:"89,00 zł",old:"149,00 zł",off:"-40%",icon:"🧥"},
+ {cat:"Elektronika",name:"Słuchawki bezprzewodowe",desc:"Czysty dźwięk i etui",price:"119,00 zł",old:"199,00 zł",off:"-40%",icon:"🎧"},
+ {cat:"Elektronika",name:"Smartwatch",desc:"Powiadomienia i monitoring",price:"169,00 zł",old:"299,00 zł",off:"-43%",icon:"⌚"},
+ {cat:"Sport",name:"Mysz gamingowa",desc:"Podświetlenie RGB",price:"69,00 zł",old:"119,00 zł",off:"-42%",icon:"🖱️"},
+ {cat:"Elektronika",name:"Słuchawki JBL",desc:"Bezprzewodowy model",price:"129,00 zł",old:"219,00 zł",off:"-41%",icon:"🎧"},
+ {cat:"Moda",name:"Plecak miejski",desc:"Lekki i praktyczny",price:"79,00 zł",old:"139,00 zł",off:"-43%",icon:"🎒"},
+ {cat:"Dom",name:"Lampka LED",desc:"Nowoczesne oświetlenie",price:"39,00 zł",old:"89,00 zł",off:"-56%",icon:"💡"},
+ {cat:"Sport",name:"Kurtka sportowa",desc:"Na chłodniejsze dni",price:"149,00 zł",old:"299,00 zł",off:"-50%",icon:"🧥"},
+ {cat:"Dom",name:"Organizer",desc:"Porządek w domu",price:"29,00 zł",old:"59,00 zł",off:"-51%",icon:"📦"},
+ {cat:"Elektronika",name:"Powerbank",desc:"Duża pojemność",price:"59,00 zł",old:"99,00 zł",off:"-40%",icon:"🔋"},
+ {cat:"Moda",name:"T-shirt basic",desc:"Prosty krój",price:"39,00 zł",old:"69,00 zł",off:"-43%",icon:"👕"}
+];
+let current="all",query="";
+function render(){
+ const grid=document.getElementById("grid"),empty=document.getElementById("empty");
+ const list=products.filter(p=>(current==="all"||p.cat===current)&&
+   (p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(query.toLowerCase()));
+ grid.innerHTML=list.map((p,i)=>`<article class="product"><div class="discount">${p.off}</div><div class="visual">${p.icon}</div><div class="info"><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="prices"><span class="price">${p.price}</span><span class="old">${p.old}</span></div><button class="btn deal" onclick="alert('Tutaj wstawimy Twój link afiliacyjny z MyLead/AliExpress.')">SPRAWDŹ OFERTĘ →</button></div></article>`).join("");
+ empty.style.display=list.length?"none":"block";
+}
+document.querySelectorAll(".cat").forEach(el=>el.addEventListener("click",()=>{document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));el.classList.add("active");current=el.dataset.cat;render()}));
+document.getElementById("search").addEventListener("input",e=>{query=e.target.value;render()});
+render();
+</script>
+</body>
+</html>
