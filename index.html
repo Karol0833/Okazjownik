@@ -3,26 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="OKAZJOWNIK — najlepsze okazje znalezione w sieci.">
-<title>OKAZJOWNIK — najlepsze okazje w jednym miejscu</title>
+
+<meta name="description"
+content="OKAZJOWNIK — najlepsze okazje, ciekawe produkty i dobre ceny w jednym miejscu.">
+
+<title>OKAZJOWNIK — najlepsze okazje</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 :root{
   --bg:#050505;
-  --bg2:#0a0a0a;
-  --card:#101010;
-  --card2:#151515;
-  --white:#f5f5f5;
-  --muted:#8b8b8b;
+  --panel:#0c0c0c;
+  --panel2:#111;
   --line:#242424;
-  --red:#ff2630;
-  --red2:#ff4650;
+  --text:#f5f5f5;
+  --muted:#858585;
+  --red:#ff3038;
+  --red2:#ff5960;
 }
 
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
 }
 
 html{
@@ -30,37 +32,39 @@ html{
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
+  margin:0;
   background:var(--bg);
-  color:var(--white);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
   overflow-x:hidden;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button,input{
-  font:inherit;
-}
-
-/* =========================
-   CURSOR GLOW
-========================= */
-
-.cursor-glow{
+body:before{
+  content:"";
   position:fixed;
-  width:350px;
-  height:350px;
-  border-radius:50%;
+  inset:0;
   pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:linear-gradient(to bottom,black,transparent 75%);
+  opacity:.35;
+  z-index:-2;
+}
+
+.cursor{
+  position:fixed;
+  width:320px;
+  height:320px;
+  border-radius:50%;
   background:radial-gradient(
     circle,
-    rgba(255,38,48,.08),
-    transparent 68%
+    rgba(255,48,56,.13),
+    transparent 65%
   );
   transform:translate(-50%,-50%);
+  pointer-events:none;
   z-index:0;
 }
 
@@ -68,84 +72,82 @@ button,input{
    HEADER
 ========================= */
 
-header{
+.header{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:100;
-  padding:18px 0;
-  background:rgba(5,5,5,.72);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.05);
-}
+  z-index:20;
+  top:14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(1180px,calc(100% - 28px));
+  height:68px;
 
-.nav{
-  max-width:1250px;
-  margin:auto;
-  padding:0 25px;
+  border:1px solid #222;
+  background:rgba(7,7,7,.76);
+  backdrop-filter:blur(20px);
+
+  border-radius:18px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
+  padding:0 18px 0 14px;
 }
 
-.logo{
-  font-size:22px;
-  font-weight:900;
-  letter-spacing:-1px;
-}
-
-.logo span{
-  color:var(--red);
-}
-
-.logo-sub{
-  display:block;
-  color:#666;
-  font-size:9px;
-  font-weight:400;
-  letter-spacing:1px;
-  margin-top:2px;
-}
-
-nav{
-  display:flex;
-  gap:32px;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-nav a{
-  color:#aaa;
-  transition:.3s;
-}
-
-nav a:hover{
-  color:#fff;
-}
-
-.nav-right{
+.brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:11px;
+  font-weight:900;
+  letter-spacing:-.8px;
 }
 
-.search-btn{
-  width:38px;
-  height:38px;
-  border:1px solid #292929;
-  border-radius:50%;
+.brand svg{
+  width:40px;
+  height:40px;
+  flex:none;
+}
+
+.brand span{
+  font-size:18px;
+}
+
+.brand small{
+  display:block;
+  font-size:8px;
+  letter-spacing:1.5px;
+  color:#777;
+  margin-top:2px;
+  font-weight:700;
+}
+
+.nav{
+  display:flex;
+  gap:7px;
+}
+
+.nav a{
+  font-size:12px;
+  color:#aaa;
+  padding:10px 12px;
+  border-radius:10px;
+  transition:.25s;
+}
+
+.nav a:hover{
+  background:#151515;
+  color:#fff;
+}
+
+.search{
+  border:1px solid #2b2b2b;
   background:#111;
   color:#fff;
+  border-radius:10px;
+  width:42px;
+  height:38px;
   cursor:pointer;
-  transition:.3s;
-}
-
-.search-btn:hover{
-  border-color:var(--red);
-  transform:rotate(8deg);
+  font-size:20px;
 }
 
 /* =========================
@@ -153,128 +155,113 @@ nav a:hover{
 ========================= */
 
 .hero{
-  min-height:100vh;
-  position:relative;
+  min-height:780px;
+
   display:flex;
   align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(255,38,48,.08),
-      transparent 32%
-    ),
-    #050505;
+
+  position:relative;
+
+  padding:150px 6vw 100px;
+
+  max-width:1450px;
+  margin:auto;
 }
 
-.hero-grid{
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:70px 70px;
-  mask-image:linear-gradient(
-    to bottom,
-    black,
-    transparent 90%
-  );
-}
-
-.hero-content{
-  width:100%;
-  max-width:1200px;
-  padding:150px 25px 100px;
-  text-align:center;
+.hero-inner{
+  max-width:1000px;
   position:relative;
   z-index:2;
 }
 
-.hero-small{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  padding:8px 14px;
-  border:1px solid #292929;
-  border-radius:100px;
-  color:#aaa;
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  background:rgba(255,255,255,.02);
-  animation:fadeUp .8s ease forwards;
+.eyebrow{
+  font-size:11px;
+  letter-spacing:3px;
+  color:#a4a4a4;
+  font-weight:700;
+  margin-bottom:25px;
 }
 
-.hero-dot{
-  width:6px;
-  height:6px;
-  background:var(--red);
+.eyebrow i{
+  display:inline-block;
+  width:7px;
+  height:7px;
   border-radius:50%;
-  box-shadow:0 0 14px var(--red);
-  animation:pulse 1.7s infinite;
+  background:var(--red);
+  margin-right:8px;
+  box-shadow:0 0 18px var(--red);
 }
 
-.hero h1{
-  font-size:clamp(65px,11vw,155px);
-  line-height:.82;
-  letter-spacing:-8px;
-  margin:35px 0;
-  font-weight:950;
-  text-transform:uppercase;
-  animation:heroTitle 1s .1s ease both;
+h1{
+  font-size:clamp(64px,11vw,154px);
+  line-height:.84;
+  letter-spacing:-.085em;
+  margin:0;
+  font-weight:900;
+  max-width:1050px;
 }
 
-.hero h1 .red{
+h1 em{
+  font-style:normal;
   color:var(--red);
 }
 
-.hero-description{
-  max-width:560px;
-  margin:auto;
-  color:#858585;
-  font-size:14px;
+.hero p{
+  color:#9a9a9a;
+  max-width:540px;
   line-height:1.7;
-  animation:fadeUp 1s .25s ease both;
+  font-size:14px;
+  margin:34px 0;
 }
 
-.hero-button{
-  margin-top:35px;
-  display:inline-flex;
-  align-items:center;
-  gap:14px;
-  padding:15px 22px;
-  border:1px solid #333;
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:15px 21px;
+  border-radius:12px;
+  border:1px solid #292929;
   background:#111;
-  border-radius:100px;
   color:#fff;
-  font-size:11px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  transition:.35s;
-  animation:fadeUp 1s .4s ease both;
+  font-weight:700;
+  font-size:12px;
+  cursor:pointer;
+  transition:.25s;
 }
 
-.hero-button span{
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:var(--red);
-}
-
-.hero-button:hover{
-  background:var(--red);
-  border-color:var(--red);
-  transform:translateY(-4px);
-  box-shadow:0 15px 45px rgba(255,38,48,.2);
-}
-
-.hero-button:hover span{
+.btn.primary{
   background:#fff;
-  color:#000;
+  color:#050505;
+  border-color:#fff;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 35px rgba(0,0,0,.4);
+}
+
+.hero-orb{
+  position:absolute;
+  width:550px;
+  height:550px;
+  right:-80px;
+  top:120px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle at 40% 35%,
+      rgba(255,48,56,.28),
+      rgba(255,48,56,.04) 35%,
+      transparent 68%
+    );
+
+  filter:blur(4px);
+  pointer-events:none;
 }
 
 /* =========================
@@ -283,28 +270,34 @@ nav a:hover{
 
 .marquee{
   overflow:hidden;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background:#080808;
-}
-
-.marquee-track{
-  width:max-content;
-  display:flex;
-  animation:marquee 25s linear infinite;
-}
-
-.marquee-item{
-  padding:18px 30px;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  color:#777;
+  border-top:1px solid #1d1d1d;
+  border-bottom:1px solid #1d1d1d;
+  background:#090909;
   white-space:nowrap;
 }
 
-.marquee-item strong{
+.track{
+  display:inline-flex;
+  gap:55px;
+  padding:20px 0;
+  animation:marquee 28s linear infinite;
+}
+
+.track span{
+  font-size:12px;
+  letter-spacing:2px;
+  font-weight:800;
+  color:#8e8e8e;
+}
+
+.track b{
   color:var(--red);
+}
+
+@keyframes marquee{
+  to{
+    transform:translateX(-50%);
+  }
 }
 
 /* =========================
@@ -312,243 +305,257 @@ nav a:hover{
 ========================= */
 
 .section{
-  max-width:1250px;
+  max-width:1180px;
   margin:auto;
-  padding:120px 25px;
+  padding:105px 24px;
 }
 
-.section-header{
+.section-head{
   display:flex;
   justify-content:space-between;
   align-items:end;
-  margin-bottom:45px;
+  gap:25px;
+  margin-bottom:35px;
 }
 
-.section-number{
-  color:#555;
+.kicker{
+  color:var(--red);
   font-size:10px;
-  letter-spacing:2px;
-  margin-bottom:12px;
+  letter-spacing:2.5px;
+  font-weight:800;
 }
 
-.section-title{
-  font-size:clamp(40px,6vw,75px);
+.section h2{
+  font-size:clamp(38px,6vw,72px);
   line-height:.9;
-  letter-spacing:-4px;
-  text-transform:uppercase;
+  letter-spacing:-.065em;
+  margin:8px 0 0;
 }
 
-.section-title span{
-  color:#555;
-}
-
-.section-description{
-  max-width:310px;
+.muted{
   color:#777;
   font-size:12px;
-  line-height:1.6;
+  line-height:1.7;
+  max-width:360px;
 }
 
 /* =========================
-   CATEGORIES
+   FILTERS
 ========================= */
 
-.categories{
+.filters{
   display:flex;
+  gap:7px;
   flex-wrap:wrap;
-  gap:9px;
-  margin-bottom:50px;
+  margin-bottom:25px;
 }
 
-.category{
-  background:transparent;
-  border:1px solid #292929;
-  color:#777;
-  padding:11px 17px;
+.filter{
+  background:#0b0b0b;
+  color:#888;
+  border:1px solid #222;
   border-radius:100px;
+  padding:9px 14px;
+  font-size:11px;
   cursor:pointer;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1.2px;
-  transition:.3s;
+  transition:.25s;
 }
 
-.category:hover,
-.category.active{
+.filter.active,
+.filter:hover{
   background:#fff;
+  color:#050505;
   border-color:#fff;
-  color:#000;
 }
 
 /* =========================
    PRODUCTS
 ========================= */
 
-.products{
+.grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
 }
 
-.product{
-  background:var(--card);
+.card{
+  position:relative;
+  overflow:hidden;
+
+  background:
+    linear-gradient(145deg,#101010,#090909);
+
   border:1px solid #202020;
-  position:relative;
-  overflow:hidden;
-  min-height:530px;
-  transition:.5s;
-  opacity:0;
-  transform:translateY(35px);
-  animation:productIn .7s forwards;
+  border-radius:18px;
+
+  padding:13px;
+
+  transition:
+    transform .35s,
+    border-color .35s,
+    box-shadow .35s;
 }
 
-.product:hover{
-  border-color:#3a3a3a;
+.card:hover{
   transform:translateY(-7px);
+  border-color:#383838;
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.55),
+    0 0 50px rgba(255,48,56,.035);
 }
 
-.product-image{
-  height:340px;
-  display:grid;
-  place-items:center;
-  position:relative;
-  overflow:hidden;
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.visual{
+  height:260px;
+
+  border-radius:13px;
+
   background:
     radial-gradient(
       circle at 50% 45%,
-      rgba(255,255,255,.07),
-      transparent 38%
+      rgba(255,48,56,.12),
+      transparent 45%
     ),
-    linear-gradient(135deg,#101010,#080808);
+    #0b0b0b;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  position:relative;
+  overflow:hidden;
 }
 
-.product-image:after{
+.visual:before{
   content:"";
   position:absolute;
   width:180px;
   height:180px;
   border-radius:50%;
-  background:rgba(255,38,48,.05);
-  filter:blur(40px);
-  transition:.5s;
+
+  background:rgba(255,48,56,.055);
+
+  filter:blur(30px);
+
+  transition:.4s;
 }
 
-.product:hover .product-image:after{
-  width:250px;
-  height:250px;
-  background:rgba(255,38,48,.1);
+.card:hover .visual:before{
+  transform:scale(1.35);
+  background:rgba(255,48,56,.1);
 }
 
-.product-icon{
-  font-size:110px;
+.product-image{
   position:relative;
   z-index:2;
-  filter:grayscale(.2);
-  transition:.5s;
+
+  width:88%;
+  height:88%;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 18px 28px rgba(0,0,0,.65));
+
+  transition:
+    transform .45s ease,
+    filter .45s ease;
 }
 
-.product:hover .product-icon{
-  transform:scale(1.12) rotate(-3deg);
-  filter:grayscale(0);
+.card:hover .product-image{
+  transform:scale(1.07);
+
+  filter:
+    drop-shadow(0 22px 35px rgba(0,0,0,.7))
+    drop-shadow(0 0 22px rgba(255,48,56,.08));
 }
 
-.product-badge{
+.badge{
   position:absolute;
-  top:18px;
-  left:18px;
-  z-index:5;
+  z-index:4;
+
+  top:12px;
+  left:12px;
+
   background:var(--red);
   color:#fff;
-  padding:7px 10px;
+
   font-size:9px;
   font-weight:900;
   letter-spacing:1px;
-  text-transform:uppercase;
+
+  padding:7px 9px;
+
+  border-radius:8px;
 }
 
-.product-number{
+.num{
   position:absolute;
-  top:18px;
-  right:18px;
+  z-index:4;
+
+  top:14px;
+  right:14px;
+
   color:#555;
   font-size:10px;
-  z-index:5;
 }
 
-.product-info{
-  padding:25px;
-}
+.meta{
+  display:flex;
+  justify-content:space-between;
 
-.product-category{
-  color:var(--red);
+  margin:16px 3px 7px;
+
+  color:#666;
+
   font-size:9px;
   text-transform:uppercase;
-  letter-spacing:1.8px;
-  margin-bottom:10px;
+  letter-spacing:1.4px;
 }
 
-.product-name{
-  font-size:24px;
-  letter-spacing:-1px;
-  margin-bottom:9px;
+.card h3{
+  font-size:18px;
+  letter-spacing:-.04em;
+  margin:0 3px 8px;
 }
 
-.product-description{
+.card p{
   color:#777;
   font-size:11px;
-  line-height:1.5;
-  min-height:33px;
+  line-height:1.6;
+
+  margin:0 3px 17px;
+
+  min-height:35px;
 }
 
-.product-bottom{
+.card-bottom{
   display:flex;
-  align-items:end;
   justify-content:space-between;
-  margin-top:22px;
-  gap:15px;
-}
-
-.product-price{
-  color:#fff;
-  font-size:21px;
-  font-weight:900;
-}
-
-.product-price small{
-  display:block;
-  color:#555;
-  font-size:9px;
-  font-weight:400;
-  margin-top:3px;
-}
-
-.product-button{
-  display:flex;
   align-items:center;
-  gap:8px;
-  border:1px solid #333;
-  background:#161616;
-  color:#fff;
-  padding:11px 14px;
-  font-size:9px;
+
+  border-top:1px solid #202020;
+
+  padding:14px 3px 2px;
+}
+
+.price{
   font-weight:800;
+  font-size:15px;
+}
+
+.go{
+  font-size:10px;
+  font-weight:900;
   letter-spacing:1px;
-  text-transform:uppercase;
-  transition:.3s;
+  color:#fff;
+  transition:.2s;
 }
 
-.product-button span{
-  color:var(--red);
-  font-size:14px;
-}
-
-.product-button:hover{
-  background:#fff;
-  color:#000;
-  border-color:#fff;
-}
-
-.product-button:hover span{
+.go:hover{
   color:var(--red);
 }
 
@@ -557,86 +564,69 @@ nav a:hover{
 ========================= */
 
 .feature{
-  background:#080808;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+  border-top:1px solid #202020;
+  border-bottom:1px solid #202020;
+  padding:110px 0;
 }
 
 .feature-inner{
-  max-width:1250px;
+  max-width:1180px;
   margin:auto;
-  padding:110px 25px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
-}
-
-.feature-label{
-  color:var(--red);
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  margin-bottom:18px;
+  padding:0 24px;
 }
 
 .feature h2{
-  font-size:clamp(45px,6vw,80px);
-  line-height:.9;
-  letter-spacing:-4px;
-  text-transform:uppercase;
+  font-size:clamp(48px,8vw,100px);
+  letter-spacing:-.08em;
+  line-height:.88;
+  max-width:950px;
+  margin:18px 0;
 }
 
 .feature h2 span{
   color:#555;
 }
 
-.feature-text{
+.feature p{
   color:#777;
-  font-size:13px;
+  max-width:520px;
   line-height:1.8;
-  margin-top:25px;
-  max-width:450px;
+  font-size:13px;
 }
 
-.feature-list{
+/* =========================
+   STATS
+========================= */
+
+.stats{
   display:grid;
-  gap:10px;
+  grid-template-columns:repeat(4,1fr);
+
+  border-top:1px solid #202020;
+  border-bottom:1px solid #202020;
 }
 
-.feature-item{
-  padding:22px;
-  border:1px solid #202020;
-  background:#0d0d0d;
-  display:flex;
-  align-items:center;
-  gap:18px;
-  transition:.3s;
+.stat{
+  padding:35px 25px;
+  border-right:1px solid #202020;
 }
 
-.feature-item:hover{
-  border-color:#444;
-  transform:translateX(8px);
+.stat:last-child{
+  border:0;
 }
 
-.feature-icon{
-  width:40px;
-  height:40px;
-  display:grid;
-  place-items:center;
-  border:1px solid #292929;
-  color:var(--red);
+.stat strong{
+  font-size:32px;
+  letter-spacing:-.05em;
 }
 
-.feature-item strong{
+.stat small{
   display:block;
-  font-size:12px;
-  margin-bottom:4px;
-}
-
-.feature-item small{
   color:#666;
+  margin-top:8px;
   font-size:10px;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
 }
 
 /* =========================
@@ -644,136 +634,152 @@ nav a:hover{
 ========================= */
 
 .about{
-  text-align:center;
-  max-width:850px;
-  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
 }
 
 .about h2{
-  font-size:clamp(45px,7vw,90px);
-  line-height:.85;
-  letter-spacing:-5px;
-  text-transform:uppercase;
-}
-
-.about h2 span{
-  color:var(--red);
+  font-size:clamp(42px,6vw,76px);
+  line-height:.9;
+  letter-spacing:-.07em;
+  margin:12px 0;
 }
 
 .about p{
   color:#777;
-  max-width:550px;
-  margin:30px auto 0;
   line-height:1.8;
   font-size:13px;
+}
+
+.about-box{
+  border:1px solid #222;
+  border-radius:20px;
+
+  min-height:370px;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255,48,56,.18),
+      transparent 35%
+    ),
+    #0b0b0b;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.about-box svg{
+  width:160px;
+  height:160px;
+
+  filter:
+    drop-shadow(0 0 50px rgba(255,48,56,.22));
 }
 
 /* =========================
    FOOTER
 ========================= */
 
-footer{
-  border-top:1px solid var(--line);
-  background:#030303;
-}
-
 .footer{
-  max-width:1250px;
-  margin:auto;
-  padding:50px 25px 25px;
+  border-top:1px solid #202020;
+  padding:65px 24px 30px;
 }
 
-.footer-top{
+.footer-inner{
+  max-width:1180px;
+  margin:auto;
+
   display:flex;
   justify-content:space-between;
-  align-items:start;
-  padding-bottom:60px;
+  gap:30px;
 }
 
-.footer-brand{
-  font-size:30px;
-  font-weight:950;
-  letter-spacing:-2px;
-}
-
-.footer-brand span{
-  color:var(--red);
+.footer p{
+  color:#666;
+  font-size:11px;
 }
 
 .footer-links{
   display:flex;
-  gap:25px;
+  gap:20px;
   color:#777;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
+  font-size:11px;
 }
 
-.footer-links a:hover{
-  color:#fff;
-}
+.copy{
+  max-width:1180px;
+  margin:45px auto 0;
 
-.footer-bottom{
-  border-top:1px solid #181818;
   padding-top:20px;
-  display:flex;
-  justify-content:space-between;
-  color:#444;
+
+  border-top:1px solid #181818;
+
+  color:#4d4d4d;
   font-size:9px;
+  letter-spacing:1px;
 }
 
 /* =========================
    SEARCH
 ========================= */
 
-.search-overlay{
+.overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.94);
-  backdrop-filter:blur(15px);
-  z-index:200;
+
+  background:rgba(0,0,0,.88);
+  backdrop-filter:blur(18px);
+
+  z-index:50;
+
   display:none;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
-  padding:30px;
+
+  padding:130px 20px;
 }
 
-.search-overlay.active{
+.overlay.open{
   display:flex;
 }
 
-.search-box{
+.searchbox{
   width:min(700px,100%);
 }
 
-.search-box label{
-  display:block;
-  color:#555;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:10px;
-  margin-bottom:15px;
-}
-
-.search-input{
+.searchbox input{
   width:100%;
+
   background:transparent;
+
   border:0;
-  border-bottom:1px solid #333;
+  border-bottom:1px solid #444;
+
   color:#fff;
-  font-size:45px;
+
+  font-size:42px;
+
   outline:none;
-  padding:10px 0 18px;
+
+  padding:12px 0;
 }
 
-.search-close{
+.close{
   position:absolute;
   top:30px;
   right:30px;
+
   background:none;
   border:0;
+
   color:#fff;
+
   font-size:25px;
+
   cursor:pointer;
 }
 
@@ -781,55 +787,15 @@ footer{
    ANIMATIONS
 ========================= */
 
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(25px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:.8s;
 }
 
-@keyframes heroTitle{
-  from{
-    opacity:0;
-    transform:translateY(45px);
-    letter-spacing:-15px;
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-    letter-spacing:-8px;
-  }
-}
-
-@keyframes productIn{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@keyframes pulse{
-  0%,100%{
-    opacity:1;
-    transform:scale(1);
-  }
-  50%{
-    opacity:.4;
-    transform:scale(.7);
-  }
-}
-
-@keyframes marquee{
-  from{
-    transform:translateX(0);
-  }
-  to{
-    transform:translateX(-50%);
-  }
+.reveal.show{
+  opacity:1;
+  transform:none;
 }
 
 /* =========================
@@ -838,208 +804,198 @@ footer{
 
 @media(max-width:850px){
 
-  nav{
+  .nav{
     display:none;
   }
 
-  .products{
+  .hero{
+    min-height:700px;
+    padding-top:140px;
+  }
+
+  .hero-orb{
+    right:-220px;
+    opacity:.7;
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stat:nth-child(2){
+    border-right:0;
+  }
+
+  .about{
     grid-template-columns:1fr;
+    gap:35px;
   }
-
-  .feature-inner{
-    grid-template-columns:1fr;
-    gap:50px;
-  }
-
-  .hero h1{
-    letter-spacing:-5px;
-  }
-
 }
 
-@media(max-width:600px){
+@media(max-width:560px){
 
-  .hero-content{
-    padding-top:150px;
+  .header{
+    height:60px;
+  }
+
+  .brand small{
+    display:none;
+  }
+
+  .hero{
+    padding:130px 20px 80px;
   }
 
   .hero h1{
-    font-size:65px;
-    letter-spacing:-4px;
+    font-size:64px;
   }
 
   .section{
     padding:80px 18px;
   }
 
-  .section-header{
+  .section-head{
     display:block;
   }
 
-  .section-description{
-    margin-top:20px;
+  .grid{
+    grid-template-columns:1fr;
   }
 
-  .product{
-    min-height:auto;
+  .visual{
+    height:290px;
   }
 
-  .product-image{
-    height:280px;
+  .stats{
+    grid-template-columns:1fr 1fr;
   }
 
-  .product-info{
-    padding:20px;
+  .stat{
+    padding:25px 16px;
   }
 
-  .product-name{
-    font-size:21px;
-  }
-
-  .product-bottom{
-    align-items:stretch;
-    flex-direction:column;
-  }
-
-  .product-button{
-    justify-content:center;
-  }
-
-  .feature-inner{
-    padding:80px 18px;
-  }
-
-  .footer-top{
-    flex-direction:column;
-    gap:35px;
+  .footer-inner{
+    display:block;
   }
 
   .footer-links{
-    flex-wrap:wrap;
+    margin-top:25px;
   }
 
-  .footer-bottom{
-    gap:10px;
-    flex-direction:column;
+  .feature{
+    padding:80px 0;
   }
-
-  .search-input{
-    font-size:30px;
-  }
-
-}
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *::before,
-  *::after{
-    animation:none!important;
-    transition:none!important;
-    scroll-behavior:auto!important;
-  }
-
 }
 </style>
 </head>
 
 <body>
 
-<div class="cursor-glow" id="cursorGlow"></div>
-
+<div class="cursor" id="cursor"></div>
 
 <!-- =========================
      HEADER
 ========================= -->
 
-<header>
+<header class="header">
 
-<div class="nav">
+<a class="brand" href="#">
 
-<a href="#home">
+<svg viewBox="0 0 48 48" aria-label="Logo OKAZJOWNIK">
+<defs>
+<linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+<stop stop-color="#ff5960"/>
+<stop offset="1" stop-color="#ff3038"/>
+</linearGradient>
+</defs>
 
-<div class="logo">
-🔥 OKAZJ<span>OWNIK</span>
-<div class="logo-sub">NAJLEPSZE OKAZJE W JEDNYM MIEJSCU</div>
+<path
+d="M24 3C14 10 8 18 8 27c0 10 7 18 16 18s16-7 16-17c0-7-4-13-10-17 1 7-2 10-6 13 0-7 1-12 0-21Z"
+fill="url(#logoGradient)"
+/>
+
+<circle
+cx="24"
+cy="29"
+r="6"
+fill="#050505"
+/>
+
+</svg>
+
+<div>
+<span>OKAZJOWNIK</span>
+<small>POLUJEMY NA DOBRE CENY</small>
 </div>
 
 </a>
 
-<nav>
-<a href="#home">Start</a>
-<a href="#deals">Okazje</a>
-<a href="#categories">Kategorie</a>
-<a href="#about">O nas</a>
+<nav class="nav">
+<a href="#okazje">Okazje</a>
+<a href="#kategorie">Kategorie</a>
+<a href="#o-nas">O nas</a>
 </nav>
 
-<div class="nav-right">
-
-<button class="search-btn" id="openSearch">
+<button
+class="search"
+id="searchBtn"
+aria-label="Szukaj"
+>
 ⌕
 </button>
-
-</div>
-
-</div>
 
 </header>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
-
-<div class="search-overlay" id="searchOverlay">
-
-<button class="search-close" id="closeSearch">
-×
-</button>
-
-<div class="search-box">
-
-<label>Znajdź okazję</label>
-
-<input
-id="searchInput"
-class="search-input"
-placeholder="Wpisz nazwę produktu..."
-autocomplete="off"
->
-
-</div>
-
-</div>
-
+<main>
 
 <!-- =========================
      HERO
 ========================= -->
 
-<section class="hero" id="home">
+<section class="hero">
 
-<div class="hero-grid"></div>
+<div class="hero-orb"></div>
 
-<div class="hero-content">
+<div class="hero-inner reveal">
 
-<div class="hero-small">
-<div class="hero-dot"></div>
+<div class="eyebrow">
+<i></i>
 CODZIENNIE NOWE OKAZJE
 </div>
 
 <h1>
 ODKRYWAJ<br>
-<span class="red">OKAZJE.</span>
+<em>OKAZJE.</em>
 </h1>
 
-<p class="hero-description">
-Ciekawe produkty, dobre ceny i promocje znalezione w sieci.
-Bez godzinnego przeglądania internetu.
+<p>
+Wyłapujemy ciekawe produkty i dobre ceny,
+żebyś nie musiał przeszukiwać internetu godzinami.
+Jedno miejsce. Konkretne okazje.
 </p>
 
-<a href="#deals" class="hero-button">
-Zobacz okazje
-<span>↓</span>
+<div class="actions">
+
+<a
+class="btn primary"
+href="#okazje"
+>
+ZOBACZ OKAZJE ↓
 </a>
+
+<a
+class="btn"
+href="#o-nas"
+>
+JAK TO DZIAŁA
+</a>
+
+</div>
 
 </div>
 
@@ -1052,39 +1008,43 @@ Zobacz okazje
 
 <div class="marquee">
 
-<div class="marquee-track">
+<div class="track">
 
-<div class="marquee-item">
-<strong>🔥</strong> NAJLEPSZE OKAZJE
-</div>
+<span>OKAZJOWNIK</span>
+<b>✦</b>
 
-<div class="marquee-item">
-CODZIENNIE NOWE PRODUKTY
-</div>
+<span>ELEKTRONIKA</span>
+<b>✦</b>
 
-<div class="marquee-item">
-<strong>•</strong> SPRAWDŹ CENĘ
-</div>
+<span>GAMING</span>
+<b>✦</b>
 
-<div class="marquee-item">
-ELEKTRONIKA • GAMING • DOM
-</div>
+<span>DOM</span>
+<b>✦</b>
 
-<div class="marquee-item">
-<strong>🔥</strong> NAJLEPSZE OKAZJE
-</div>
+<span>AKCESORIA</span>
+<b>✦</b>
 
-<div class="marquee-item">
-CODZIENNIE NOWE PRODUKTY
-</div>
+<span>NOWE OKAZJE</span>
+<b>✦</b>
 
-<div class="marquee-item">
-<strong>•</strong> SPRAWDŹ CENĘ
-</div>
+<span>OKAZJOWNIK</span>
+<b>✦</b>
 
-<div class="marquee-item">
-ELEKTRONIKA • GAMING • DOM
-</div>
+<span>ELEKTRONIKA</span>
+<b>✦</b>
+
+<span>GAMING</span>
+<b>✦</b>
+
+<span>DOM</span>
+<b>✦</b>
+
+<span>AKCESORIA</span>
+<b>✦</b>
+
+<span>NOWE OKAZJE</span>
+<b>✦</b>
 
 </div>
 
@@ -1092,70 +1052,84 @@ ELEKTRONIKA • GAMING • DOM
 
 
 <!-- =========================
-     DEALS
+     PRODUCTS
 ========================= -->
 
-<section class="section" id="deals">
+<section
+class="section"
+id="okazje"
+>
 
-<div class="section-header">
+<div class="section-head reveal">
 
 <div>
 
-<div class="section-number">01 / WYBRANE PRODUKTY</div>
+<div class="kicker">
+01 / WYBRANE
+</div>
 
-<h2 class="section-title">
-NAJLEPSZE<br>
-<span>OKAZJE.</span>
+<h2>
+NAJNOWSZE<br>
+OKAZJE
 </h2>
 
 </div>
 
-<p class="section-description">
-Wybrane produkty, które przyciągnęły naszą uwagę.
-Ceny mogą się zmieniać — sprawdź aktualną ofertę.
-</p>
+<div class="muted">
+Ciekawe produkty znalezione w dobrych cenach.
+Cena i dostępność mogą się zmieniać.
+</div>
 
 </div>
 
 
-<!-- CATEGORIES -->
+<div
+class="filters"
+id="kategorie"
+>
 
-<div class="categories" id="categories">
-
-<button class="category active" data-cat="all">
+<button
+class="filter active"
+data-cat="all"
+>
 Wszystko
 </button>
 
-<button class="category" data-cat="Elektronika">
+<button
+class="filter"
+data-cat="Elektronika"
+>
 Elektronika
 </button>
 
-<button class="category" data-cat="Gaming">
+<button
+class="filter"
+data-cat="Gaming"
+>
 Gaming
 </button>
 
-<button class="category" data-cat="Dom">
+<button
+class="filter"
+data-cat="Dom"
+>
 Dom
 </button>
 
-<button class="category" data-cat="Oświetlenie">
-Oświetlenie
-</button>
-
-<button class="category" data-cat="Moda">
-Moda
-</button>
-
-<button class="category" data-cat="Obuwie">
-Obuwie
+<button
+class="filter"
+data-cat="Akcesoria"
+>
+Akcesoria
 </button>
 
 </div>
 
 
-<!-- PRODUCTS -->
-
-<div class="products" id="products"></div>
+<div
+class="grid"
+id="products"
+></div>
 
 </section>
 
@@ -1166,72 +1140,58 @@ Obuwie
 
 <section class="feature">
 
-<div class="feature-inner">
+<div class="feature-inner reveal">
 
-<div>
-
-<div class="feature-label">
-DLACZEGO OKAZJOWNIK?
+<div class="kicker">
+02 / IDEA
 </div>
 
 <h2>
-MNIEJ<br>
-SZUKANIA.<br>
+MNIEJ SZUKANIA.<br>
 <span>WIĘCEJ OKAZJI.</span>
 </h2>
 
-<p class="feature-text">
-Internet jest pełen produktów i promocji.
-My chcemy wyłapywać te ciekawsze i prezentować je
-w prosty, przejrzysty sposób.
+<p>
+OKAZJOWNIK ma być prosty:
+wchodzisz, przeglądasz, znajdujesz coś ciekawego
+i przechodzisz do oferty.
+Bez zbędnego chaosu.
 </p>
 
 </div>
 
+</section>
 
-<div class="feature-list">
 
-<div class="feature-item">
+<!-- =========================
+     STATS
+========================= -->
 
-<div class="feature-icon">
-01
+<section
+class="section"
+style="padding-bottom:0"
+>
+
+<div class="stats reveal">
+
+<div class="stat">
+<strong>01</strong>
+<small>jedno miejsce</small>
 </div>
 
-<div>
-<strong>WYBRANE PRODUKTY</strong>
-<small>Nie wszystko trafia na OKAZJOWNIKA.</small>
+<div class="stat">
+<strong>24/7</strong>
+<small>przeglądanie</small>
 </div>
 
+<div class="stat">
+<strong>∞</strong>
+<small>nowych okazji</small>
 </div>
 
-
-<div class="feature-item">
-
-<div class="feature-icon">
-02
-</div>
-
-<div>
-<strong>PROSTY WYBÓR</strong>
-<small>Najważniejsze informacje w jednym miejscu.</small>
-</div>
-
-</div>
-
-
-<div class="feature-item">
-
-<div class="feature-icon">
-03
-</div>
-
-<div>
-<strong>SPRAWDŹ OFERTĘ</strong>
-<small>Przechodzisz bezpośrednio do oferty.</small>
-</div>
-
-</div>
-
+<div class="stat">
+<strong>PL</strong>
+<small>polski projekt</small>
 </div>
 
 </div>
@@ -1243,80 +1203,187 @@ w prosty, przejrzysty sposób.
      ABOUT
 ========================= -->
 
-<section class="section" id="about">
+<section
+class="section"
+id="o-nas"
+>
 
-<div class="about">
+<div class="about reveal">
 
-<div class="section-number">
-02 / O NAS
+<div>
+
+<div class="kicker">
+03 / OKAZJOWNIK
 </div>
 
 <h2>
-OKAZJE.<br>
-<span>BEZ SZUKANIA.</span>
+POLUJEMY.<br>
+TY WYBIERASZ.
 </h2>
 
 <p>
-OKAZJOWNIK powstał z prostego pomysłu:
-znaleźć interesujące produkty i promocje
-i zebrać je w jednym miejscu.
+Strona jest tworzona jako nowoczesny katalog okazji.
+Produkty mogą prowadzić przez link afiliacyjny
+do sklepu zewnętrznego.
+Cena i dostępność mogą się zmieniać.
 </p>
 
 </div>
 
+
+<div class="about-box">
+
+<svg
+viewBox="0 0 160 160"
+aria-hidden="true"
+>
+
+<defs>
+
+<linearGradient
+id="logoGradient2"
+x1="0"
+y1="0"
+x2="1"
+y2="1"
+>
+
+<stop stop-color="#ff5960"/>
+<stop offset="1" stop-color="#ff3038"/>
+
+</linearGradient>
+
+</defs>
+
+<path
+d="M80 10C48 32 27 54 27 91c0 34 24 59 53 59s53-25 53-57c0-25-13-45-34-60 4 25-6 36-20 45 0-24 3-40 1-68Z"
+fill="url(#logoGradient2)"
+/>
+
+<circle
+cx="80"
+cy="95"
+r="20"
+fill="#080808"
+/>
+
+</svg>
+
+</div>
+
+</div>
+
 </section>
+
+</main>
 
 
 <!-- =========================
      FOOTER
 ========================= -->
 
-<footer>
+<footer class="footer">
 
-<div class="footer">
-
-<div class="footer-top">
+<div class="footer-inner">
 
 <div>
 
-<div class="footer-brand">
-OKAZJ<span>OWNIK</span>
+<div class="brand">
+
+<svg
+viewBox="0 0 48 48"
+aria-hidden="true"
+>
+
+<path
+d="M24 3C14 10 8 18 8 27c0 10 7 18 16 18s16-7 16-17c0-7-4-13-10-17 1 7-2 10-6 13 0-7 1-12 0-21Z"
+fill="#ff3038"
+/>
+
+<circle
+cx="24"
+cy="29"
+r="6"
+fill="#050505"
+/>
+
+</svg>
+
+<div>
+
+<span>OKAZJOWNIK</span>
+
+<small>
+POLUJEMY NA DOBRE CENY
+</small>
+
 </div>
 
-<div class="logo-sub">
-NAJLEPSZE OKAZJE W JEDNYM MIEJSCU
 </div>
+
+<p>
+Najciekawsze okazje w jednym miejscu.
+</p>
 
 </div>
 
 
 <div class="footer-links">
 
-<a href="#home">Start</a>
-<a href="#deals">Okazje</a>
-<a href="#categories">Kategorie</a>
-<a href="#about">O nas</a>
+<a href="#okazje">
+Okazje
+</a>
+
+<a href="#o-nas">
+O nas
+</a>
+
+<a href="#">
+Kontakt
+</a>
 
 </div>
 
 </div>
 
 
-<div class="footer-bottom">
+<div class="copy">
 
-<span>
-© 2026 OKAZJOWNIK
-</span>
-
-<span>
-Ceny i dostępność produktów mogą się zmieniać.
-</span>
-
-</div>
+© 2026 OKAZJOWNIK ·
+CENY I DOSTĘPNOŚĆ MOGĄ ULEGAĆ ZMIANIE
 
 </div>
 
 </footer>
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div
+class="overlay"
+id="overlay"
+>
+
+<button
+class="close"
+id="close"
+>
+×
+</button>
+
+<div class="searchbox">
+
+<input
+id="searchInput"
+placeholder="Szukaj okazji..."
+autocomplete="off"
+/>
+
+</div>
+
+</div>
 
 
 <script>
@@ -1328,201 +1395,184 @@ Ceny i dostępność produktów mogą się zmieniać.
 const products = [
 
 {
+name:"Toocki USB-C 100W",
 cat:"Elektronika",
-name:"Toocki USB-C → USB-C 100W",
-desc:"Szybkie ładowanie PD do 100W • USB-C → USB-C",
-price:"od 17,69 zł",
-icon:"⚡",
-badge:"OKAZJA",
-link:"#"
+price:"~18 zł",
+image:"https://down-ph.img.susercontent.com/file/cn-11134207-7qukw-lj3tkavwg0hm9a",
+desc:"Kabel USB-C do USB-C z obsługą szybkiego ładowania.",
+url:"#",
+badge:"TOP"
 },
 
 {
-cat:"Gaming",
 name:"R36S Retro Handheld 64GB",
-desc:"Kieszonkowa konsola retro • ekran 3,5\" IPS",
-price:"od ok. 170 zł",
-icon:"🎮",
-badge:"POPULARNE",
-link:"#"
+cat:"Gaming",
+price:"~200 zł",
+image:"https://frikimanes.es/cdn/shop/files/coin_17.jpg?v=1770235072",
+desc:"Kompaktowa konsola retro z ekranem IPS.",
+url:"#",
+badge:"HIT"
 },
 
 {
-cat:"Elektronika",
 name:"Magcubic HY300 Pro",
-desc:"Mini projektor • Android • Wi-Fi",
-price:"od ok. 200 zł",
-icon:"📽️",
-badge:"POPULARNE",
-link:"#"
-},
-
-{
-cat:"Dom",
-name:"Toocki Organizer Kabli",
-desc:"Prosty sposób na uporządkowanie przewodów",
-price:"od ok. 8 zł",
-icon:"🔌",
-badge:"OKAZJA",
-link:"#"
-},
-
-{
 cat:"Elektronika",
+price:"~250 zł",
+image:"https://down-br.img.susercontent.com/file/br-11134207-820lt-mncj32fj51507d",
+desc:"Kompaktowy projektor do filmów i multimediów.",
+url:"#",
+badge:"OKAZJA"
+},
+
+{
+name:"Organizer kabli Toocki",
+cat:"Akcesoria",
+price:"~12 zł",
+image:"https://down-sg.img.susercontent.com/file/sg-11134201-23030-5q9mbxlp8xov08",
+desc:"Prosty sposób na uporządkowanie przewodów.",
+url:"#",
+badge:""
+},
+
+{
 name:"Bluetooth Smart Tag",
-desc:"Mały lokalizator do kluczy i plecaka",
-price:"od ok. 30 zł",
-icon:"📍",
-badge:"NOWOŚĆ",
-link:"#"
-},
-
-{
-cat:"Dom",
-name:"Spiralny Organizer Kabli",
-desc:"Elastyczna osłona do prowadzenia przewodów",
-price:"od ok. 14 zł",
-icon:"🔗",
-badge:"OKAZJA",
-link:"#"
-},
-
-{
-cat:"Oświetlenie",
-name:"RGB LED Strip USB",
-desc:"Kolorowe podświetlenie RGB • USB",
-price:"od ok. 15 zł",
-icon:"💡",
-badge:"OKAZJA",
-link:"#"
-},
-
-{
-cat:"Dom",
-name:"Samoprzylepne Klipsy do Kabli",
-desc:"Uchwyty do prowadzenia przewodów",
-price:"od ok. 12 zł",
-icon:"🧲",
-badge:"OKAZJA",
-link:"#"
-},
-
-{
 cat:"Elektronika",
-name:"Magnetyczny Uchwyt Telefonu",
-desc:"Kompaktowy uchwyt do telefonu",
-price:"od ok. 16 zł",
-icon:"📱",
-badge:"POPULARNE",
-link:"#"
+price:"~35 zł",
+image:"https://i.ebayimg.com/images/g/ZiYAAOSwIWBoQoLG/s-l400.jpg",
+desc:"Mały lokalizator do kluczy, plecaka i innych rzeczy.",
+url:"#",
+badge:""
 },
 
 {
+name:"Spiralny organizer kabli",
+cat:"Akcesoria",
+price:"~15 zł",
+image:"https://media.adeo.com/marketplace/MKP/86417339/399bf6175165e1c5575566f75f088d7b.jpeg?fit=bounds&format=jpg&height=1200&quality=80&width=1200",
+desc:"Elastyczny organizer pomagający utrzymać porządek.",
+url:"#",
+badge:""
+},
+
+{
+name:"RGB LED Strip USB",
 cat:"Dom",
-name:"Organizer Kabli i Akcesoriów",
-desc:"Mały organizer do przewodów i elektroniki",
-price:"od ok. 6 zł",
-icon:"🎒",
-badge:"OKAZJA",
-link:"#"
+price:"~15 zł",
+image:"https://i.etsystatic.com/34929990/r/il/884b5d/5856701514/il_fullxfull.5856701514_muhm.jpg",
+desc:"Podświetlenie LED do biurka, TV lub pokoju.",
+url:"#",
+badge:""
+},
+
+{
+name:"Samoprzylepne klipsy do kabli",
+cat:"Dom",
+price:"~10 zł",
+image:"https://down-ph.img.susercontent.com/file/sg-11134201-22110-emj07dsdvfjvba",
+desc:"Małe uchwyty pomagające utrzymać porządek.",
+url:"#",
+badge:""
+},
+
+{
+name:"Magnetyczny uchwyt telefonu",
+cat:"Akcesoria",
+price:"~25 zł",
+image:"https://down-mx.img.susercontent.com/file/f7cede9b94872f251c96e18b9e923afa",
+desc:"Składany uchwyt do wygodnego ustawienia telefonu.",
+url:"#",
+badge:""
+},
+
+{
+name:"Organizer kabli i akcesoriów",
+cat:"Akcesoria",
+price:"~40 zł",
+image:"https://www.cellfixer.co.za/cdn/shop/files/3_a27ae2ac-eaa8-4e31-a08f-fc08edd86d1c_1024x1024.jpg?v=1694377597",
+desc:"Kompaktowe etui na drobne akcesoria.",
+url:"#",
+badge:""
 }
 
 ];
-
-let currentCategory="all";
-let searchQuery="";
 
 
 /* =========================
    RENDER PRODUCTS
 ========================= */
 
-function renderProducts(){
-
-const container=document.getElementById("products");
-
-const filtered=products.filter(product=>{
-
-const categoryMatch=
-currentCategory==="all" ||
-product.cat===currentCategory;
-
-const searchMatch=
-(product.name+" "+product.desc+" "+product.cat)
-.toLowerCase()
-.includes(searchQuery.toLowerCase());
-
-return categoryMatch && searchMatch;
-
-});
+const productsEl =
+document.getElementById("products");
 
 
-container.innerHTML=filtered.map((product,index)=>`
+function render(list){
+
+productsEl.innerHTML = list.map((p,i)=>`
 
 <article
-class="product"
-style="animation-delay:${index*.07}s"
+class="card reveal show"
+data-cat="${p.cat}"
 >
 
-<div class="product-image">
+<div class="visual">
 
-<div class="product-badge">
-${product.badge}
+<div class="num">
+${String(i+1).padStart(2,"0")}
 </div>
 
-<div class="product-number">
-0${index+1}
+${p.badge
+? `<div class="badge">${p.badge}</div>`
+: ""
+}
+
+<img
+class="product-image"
+src="${p.image}"
+alt="${p.name}"
+loading="lazy"
+onerror="this.style.display='none'"
+>
+
 </div>
 
-<div class="product-icon">
-${product.icon}
-</div>
+
+<div class="meta">
+
+<span>
+${p.cat}
+</span>
+
+<span>
+OKAZJOWNIK
+</span>
 
 </div>
 
 
-<div class="product-info">
-
-<div class="product-category">
-${product.cat}
-</div>
-
-<h3 class="product-name">
-${product.name}
+<h3>
+${p.name}
 </h3>
 
-<p class="product-description">
-${product.desc}
+
+<p>
+${p.desc}
 </p>
 
 
-<div class="product-bottom">
+<div class="card-bottom">
 
-<div class="product-price">
-
-${product.price}
-
-<small>
-Cena może się zmieniać
-</small>
-
-</div>
-
+<span class="price">
+${p.price}
+</span>
 
 <a
-class="product-button"
-href="${product.link}"
+class="go"
+href="${p.url}"
 target="_blank"
 rel="nofollow sponsored noopener"
-onclick="productClick('${product.name.replace(/'/g,"\\'")}')"
 >
-
-SPRAWDŹ
-<span>↗</span>
-
+SPRAWDŹ ↗
 </a>
-
-</div>
 
 </div>
 
@@ -1530,46 +1580,40 @@ SPRAWDŹ
 
 `).join("");
 
-
-if(filtered.length===0){
-
-container.innerHTML=`
-
-<div style="
-grid-column:1/-1;
-padding:80px 20px;
-text-align:center;
-border:1px solid #202020;
-color:#666;
-">
-
-Nie znaleziono produktów.
-
-</div>
-
-`;
-
 }
 
-}
+
+render(products);
 
 
 /* =========================
-   CATEGORY FILTER
+   FILTERS
 ========================= */
 
-document.querySelectorAll(".category").forEach(button=>{
+document
+.querySelectorAll(".filter")
+.forEach(btn=>{
 
-button.addEventListener("click",()=>{
+btn.addEventListener("click",()=>{
 
-document.querySelectorAll(".category")
-.forEach(item=>item.classList.remove("active"));
+document
+.querySelectorAll(".filter")
+.forEach(b=>
+b.classList.remove("active")
+);
 
-button.classList.add("active");
+btn.classList.add("active");
 
-currentCategory=button.dataset.cat;
+const cat =
+btn.dataset.cat;
 
-renderProducts();
+render(
+cat === "all"
+? products
+: products.filter(
+p=>p.cat===cat
+)
+);
 
 });
 
@@ -1580,51 +1624,72 @@ renderProducts();
    SEARCH
 ========================= */
 
-const searchOverlay=
-document.getElementById("searchOverlay");
+const overlay =
+document.getElementById("overlay");
 
-const searchInput=
+const input =
 document.getElementById("searchInput");
 
+document
+.getElementById("searchBtn")
+.onclick=()=>{
+
+overlay.classList.add("open");
+
+setTimeout(
+()=>input.focus(),
+50
+);
+
+};
+
 
 document
-.getElementById("openSearch")
-.addEventListener("click",()=>{
+.getElementById("close")
+.onclick=()=>{
 
-searchOverlay.classList.add("active");
+overlay.classList.remove("open");
 
-setTimeout(()=>{
-searchInput.focus();
-},100);
-
-});
+};
 
 
-document
-.getElementById("closeSearch")
-.addEventListener("click",()=>{
+overlay.addEventListener(
+"click",
+e=>{
 
-searchOverlay.classList.remove("active");
+if(e.target===overlay){
 
-});
-
-
-searchInput.addEventListener("input",event=>{
-
-searchQuery=event.target.value;
-
-renderProducts();
-
-});
-
-
-document.addEventListener("keydown",event=>{
-
-if(event.key==="Escape"){
-
-searchOverlay.classList.remove("active");
+overlay.classList.remove("open");
 
 }
+
+});
+
+
+input.addEventListener(
+"input",
+()=>{
+
+const q =
+input.value
+.toLowerCase()
+.trim();
+
+render(
+
+products.filter(p=>
+(
+p.name+
+" "+
+p.cat+
+" "+
+p.desc
+)
+.toLowerCase()
+.includes(q)
+)
+
+);
 
 });
 
@@ -1633,41 +1698,52 @@ searchOverlay.classList.remove("active");
    CURSOR GLOW
 ========================= */
 
-const cursorGlow=
-document.getElementById("cursorGlow");
+document.addEventListener(
+"mousemove",
+e=>{
 
-document.addEventListener("mousemove",event=>{
+const cursor =
+document.getElementById("cursor");
 
-cursorGlow.style.left=event.clientX+"px";
-cursorGlow.style.top=event.clientY+"px";
+cursor.style.left =
+e.clientX+"px";
+
+cursor.style.top =
+e.clientY+"px";
 
 });
 
 
 /* =========================
-   PRODUCT CLICK
+   REVEAL ANIMATION
 ========================= */
 
-function productClick(productName){
+const observer =
+new IntersectionObserver(
+entries=>{
 
-console.log(
-"Kliknięto produkt:",
-productName
-);
+entries.forEach(e=>{
 
-/*
-  TUTAJ PÓŹNIEJ PODMIENIMY "#"
-  NA PRAWDZIWY LINK MYLEAD.
-*/
+if(e.isIntersecting){
+
+e.target.classList.add("show");
 
 }
 
+});
 
-/* =========================
-   START
-========================= */
+},
+{
+threshold:.1
+}
+);
 
-renderProducts();
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>
+observer.observe(el)
+);
 
 </script>
 
