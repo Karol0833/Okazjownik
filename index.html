@@ -5,31 +5,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#08090d">
-<meta name="description" content="NEXORA — wybrane gadżety, dekoracje, gaming i inspiracje świąteczne.">
-<title>NEXORA | Viral Finds</title>
+<meta name="description" content="NEXORA — odkrywaj gadżety technologiczne, akcesoria gamingowe, dekoracje do pokoju i domu oraz inspiracje świąteczne. Sprawdź wybrane oferty sklepów.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://karol0833.github.io/Okazjownik/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="NEXORA">
+<meta property="og:title" content="NEXORA — Gadżety, gaming i inspiracje do domu">
+<meta property="og:description" content="Odkryj wybrane gadżety, akcesoria gamingowe, dekoracje i produkty sezonowe w katalogu NEXORA.">
+<meta property="og:url" content="https://karol0833.github.io/Okazjownik/">
+<meta name="twitter:card" content="summary">
+<title>NEXORA — Gadżety, gaming, dekoracje i inspiracje zakupowe</title>
 
-<!-- Logo NEXORA na karcie przeglądarki -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x2='1' y2='1'%3E%3Cstop stop-color='%23ff6474'/%3E%3Cstop offset='1' stop-color='%23b90022'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Cpath d='M16 46V18h7l18 19V18h7v28h-7L23 27v19z' fill='white'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "NEXORA",
+  "url": "https://karol0833.github.io/Okazjownik/",
+  "description": "Niezależny katalog inspiracji zakupowych: gadżety, gaming, dekoracje do domu i produkty sezonowe.",
+  "inLanguage": "pl-PL"
+}
+</script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23e51b37'/%3E%3Cpath d='M16 46V18h7l18 19V18h7v28h-7L23 27v19z' fill='white'/%3E%3C/svg%3E">
 
 <style>
 :root{
   --bg:#080a0f;
   --panel:#10141c;
-  --panel2:#171c25;
   --red:#ff3046;
   --red2:#ff6272;
-  --green:#14a56b;
   --text:#f7f8fb;
   --muted:#9ca5b4;
   --border:rgba(255,255,255,.11);
 }
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
+  margin:0;background:var(--bg);color:var(--text);
   font-family:Inter,system-ui,-apple-system,Arial,sans-serif;
   overflow-x:hidden;
 }
@@ -37,88 +51,57 @@ a{text-decoration:none;color:inherit}
 button,input{font:inherit}
 button{cursor:pointer}
 button:focus-visible,a:focus-visible,input:focus-visible{
-  outline:2px solid var(--red2);
-  outline-offset:3px;
+  outline:2px solid var(--red2);outline-offset:3px;
 }
 .wrap{max-width:1390px;margin:auto;padding:0 24px}
 
-/* HEADER */
+/* NAVIGATION */
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
+  position:sticky;top:0;z-index:100;
   background:rgba(8,10,15,.93);
   border-bottom:1px solid var(--border);
   backdrop-filter:blur(20px);
 }
 .nav{
-  min-height:79px;
-  display:flex;
-  align-items:center;
-  gap:26px;
+  min-height:79px;display:flex;align-items:center;gap:26px;
 }
 .brand{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  flex-shrink:0;
+  display:flex;align-items:center;gap:13px;flex-shrink:0;
 }
 .logo{
-  width:48px;
-  height:48px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
+  width:48px;height:48px;border-radius:13px;
+  display:grid;place-items:center;
   background:linear-gradient(140deg,#ff6474,#be001d);
   box-shadow:0 0 28px #ff304633;
-  font-size:29px;
-  font-weight:1000;
-  color:#fff;
+  font-size:29px;font-weight:1000;color:white;
 }
 .brand-name{
-  font-size:27px;
-  letter-spacing:-1.5px;
-  font-weight:950;
-  line-height:1;
+  font-size:27px;letter-spacing:-1.5px;
+  font-weight:950;line-height:1;
 }
 .brand-name span{color:var(--red)}
 .brand-name small{
-  display:block;
-  font-size:9px;
-  letter-spacing:1.5px;
-  color:#9ca4b0;
-  margin-top:6px;
+  display:block;font-size:9px;letter-spacing:1.5px;
+  color:#9ca4b0;margin-top:6px;
 }
 nav{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:28px;
-  margin:auto;
+  display:flex;align-items:center;justify-content:center;
+  gap:28px;margin:auto;
 }
 nav a{
-  color:#cbd0da;
-  font-size:13px;
-  font-weight:650;
+  color:#cbd0da;font-size:13px;font-weight:650;
   transition:.25s;
 }
 nav a:hover{color:#ff6072}
 nav a.christmas-link{
-  color:#ff6575;
-  border:1px solid #ff304666;
-  border-radius:13px;
-  padding:12px 15px;
-  background:#ff30460b;
-  box-shadow:0 0 17px #ff30461a;
+  color:#ff6575;border:1px solid #ff304666;
+  border-radius:13px;padding:12px 15px;
+  background:#ff30460b;box-shadow:0 0 17px #ff30461a;
 }
 .search{
-  width:225px;
-  padding:13px 17px;
-  border-radius:50px;
+  width:225px;padding:13px 17px;border-radius:50px;
   border:1px solid var(--border);
-  background:#121720;
-  color:#fff;
-  outline:none;
+  background:#121720;color:white;outline:none;
   transition:.25s;
 }
 .search:focus{border-color:var(--red)}
@@ -126,19 +109,14 @@ nav a.christmas-link{
 
 /* HERO */
 .hero{
-  position:relative;
-  min-height:565px;
-  overflow:hidden;
+  position:relative;min-height:565px;overflow:hidden;
   background:
     radial-gradient(ellipse at 78% 40%,#ff304627,transparent 43%),
     linear-gradient(140deg,#0b0e15,#080a0f);
   border-bottom:1px solid var(--border);
 }
 .hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.3;
+  content:"";position:absolute;inset:0;opacity:.3;
   background-image:
     linear-gradient(#ffffff0b 1px,transparent 1px),
     linear-gradient(90deg,#ffffff0b 1px,transparent 1px);
@@ -146,383 +124,253 @@ nav a.christmas-link{
   mask-image:linear-gradient(#000,transparent);
 }
 .hero-inner{
-  min-height:565px;
-  position:relative;
-  display:flex;
-  align-items:center;
+  min-height:565px;position:relative;
+  display:flex;align-items:center;
 }
 .hero-text{
-  position:relative;
-  z-index:2;
-  max-width:650px;
-  padding:80px 0;
-  animation:fadeUp .7s both;
+  position:relative;z-index:2;max-width:650px;
+  padding:80px 0;animation:fadeUp .7s both;
 }
 .eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 15px;
-  border:1px solid #ff30465c;
-  border-radius:50px;
-  background:#ff30460d;
-  color:#ff8996;
-  font-size:10px;
-  font-weight:900;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 15px;border:1px solid #ff30465c;
+  border-radius:50px;background:#ff30460d;
+  color:#ff8996;font-size:10px;font-weight:900;
   letter-spacing:1.6px;
 }
 .dot{
-  width:7px;
-  height:7px;
-  background:var(--red);
-  border-radius:50%;
-  box-shadow:0 0 13px var(--red);
+  width:7px;height:7px;background:var(--red);
+  border-radius:50%;box-shadow:0 0 13px var(--red);
   animation:pulse 2s infinite;
 }
 h1{
   font-size:clamp(48px,6vw,82px);
-  letter-spacing:-4px;
-  line-height:1;
+  letter-spacing:-4px;line-height:1;
   margin:28px 0;
 }
 h1 span{
   background:linear-gradient(90deg,#ff3046,#ff8490);
-  color:transparent;
-  background-clip:text;
+  color:transparent;background-clip:text;
 }
 .hero-text p{
-  color:#aeb6c4;
-  font-size:16px;
-  line-height:1.85;
+  color:#aeb6c4;font-size:16px;line-height:1.85;
   max-width:520px;
 }
 .actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:30px;
+  display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;
 }
 .btn{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  padding:14px 21px;
-  border:1px solid transparent;
-  border-radius:12px;
+  display:inline-flex;justify-content:center;
+  align-items:center;gap:8px;padding:14px 21px;
+  border:1px solid transparent;border-radius:12px;
   background:linear-gradient(110deg,#ff354a,#e51b37);
-  color:#fff;
-  font-size:12px;
-  font-weight:900;
-  transition:.25s;
-  box-shadow:0 5px 17px #ff304626;
+  color:white;font-size:12px;font-weight:900;
+  transition:.25s;box-shadow:0 5px 17px #ff304626;
 }
 .btn:hover{
   transform:translateY(-3px);
   box-shadow:0 10px 27px #ff30464c;
 }
 .btn.alt{
-  background:#1b202a;
-  border-color:var(--border);
+  background:#1b202a;border-color:var(--border);
   box-shadow:none;
 }
 .btn.alt:hover{background:#292e39}
 
-/* HERO FLOATING PRODUCTS */
+/* FLOATING PRODUCT PHOTOS */
 .showcase{
-  position:absolute;
-  width:540px;
-  height:450px;
-  top:50%;
-  right:0;
-  transform:translateY(-50%);
+  position:absolute;width:540px;height:450px;
+  top:50%;right:0;transform:translateY(-50%);
   pointer-events:none;
 }
 .float{
-  position:absolute;
-  overflow:hidden;
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(circle,#31343f,#12151d 70%);
-  border:1px solid #ffffff24;
-  border-radius:24px;
+  position:absolute;overflow:hidden;
+  display:grid;place-items:center;
+  background:radial-gradient(circle,#31343f,#12151d 70%);
+  border:1px solid #ffffff24;border-radius:24px;
   box-shadow:0 25px 65px #0009;
   will-change:transform;
 }
 .float img{
-  width:92%;
-  height:92%;
-  object-fit:contain;
+  width:92%;height:92%;object-fit:contain;
   border-radius:13px;
 }
 .float.one{
-  width:305px;height:265px;
-  top:25px;right:22px;
+  width:305px;height:265px;top:25px;right:22px;
   animation:floatA 6s ease-in-out infinite;
 }
 .float.two{
-  width:205px;height:180px;
-  left:5px;bottom:30px;
+  width:205px;height:180px;left:5px;bottom:30px;
   animation:floatB 7s ease-in-out infinite;
 }
 .float.three{
-  width:175px;height:155px;
-  right:0;bottom:0;
+  width:175px;height:155px;right:0;bottom:0;
   animation:floatC 8s ease-in-out infinite;
 }
 
 /* MOVING TEXT */
 .ticker{
-  overflow:hidden;
-  padding:15px 0;
-  background:#10131a;
+  overflow:hidden;padding:15px 0;background:#10131a;
   border-bottom:1px solid var(--border);
 }
 .track{
-  display:flex;
-  gap:45px;
-  width:max-content;
-  white-space:nowrap;
-  animation:marquee 35s linear infinite;
+  display:flex;gap:45px;width:max-content;
+  white-space:nowrap;animation:marquee 35s linear infinite;
 }
 .track span{
-  font-size:11px;
-  letter-spacing:1.5px;
-  font-weight:900;
-  color:#aeb5c0;
+  font-size:11px;letter-spacing:1.5px;
+  font-weight:900;color:#aeb5c0;
 }
 .track b{color:var(--red)}
 
 /* SECTIONS */
 section{padding:65px 0}
 .kicker{
-  font-size:10px;
-  letter-spacing:2px;
-  color:#ff586a;
-  font-weight:900;
+  font-size:10px;letter-spacing:2px;
+  color:#ff586a;font-weight:900;
 }
 h2{
   font-size:clamp(27px,3vw,38px);
-  letter-spacing:-1.5px;
-  margin:12px 0;
+  letter-spacing:-1.5px;margin:12px 0;
 }
 .sub{
-  font-size:13px;
-  line-height:1.8;
-  color:var(--muted);
+  font-size:13px;line-height:1.8;color:var(--muted);
 }
 
-/* CATEGORY PILLS */
+/* CATEGORIES */
 .filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:11px;
-  margin-top:27px;
+  display:flex;flex-wrap:wrap;gap:11px;margin-top:27px;
 }
 .filter{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:11px;
-  padding:13px 21px;
-  color:#e3e6ec;
-  background:#131720;
-  border:1px solid var(--border);
-  border-radius:50px;
-  font-size:12px;
-  font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  gap:11px;padding:13px 21px;color:#e3e6ec;
+  background:#131720;border:1px solid var(--border);
+  border-radius:50px;font-size:12px;font-weight:800;
   transition:.25s;
 }
 .filter i{font-size:19px;font-style:normal}
 .filter:hover{
-  transform:translateY(-3px);
-  border-color:#ff30466b;
+  transform:translateY(-3px);border-color:#ff30466b;
 }
 .filter.active{
   background:linear-gradient(100deg,#a80020,#ec1739);
-  border-color:#ff5266;
-  color:#fff;
+  border-color:#ff5266;color:white;
   box-shadow:0 0 23px #ff304640;
 }
-.filter.holiday-filter{
-  border-color:#22875e8a;
-}
+.filter.holiday-filter{border-color:#22875e8a}
 .filter.holiday-filter.active{
   background:linear-gradient(110deg,#075d3b,#13a36a);
   border-color:#40d99b;
   box-shadow:0 0 22px #12aa6a40;
 }
 
-/* PRODUCT GRID */
+/* PRODUCT CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(5,minmax(0,1fr));
-  gap:16px;
-  margin-top:28px;
+  gap:16px;margin-top:28px;
 }
 .card{
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
+  display:flex;flex-direction:column;overflow:hidden;
   background:linear-gradient(150deg,#171c24,#0c1016);
-  border:1px solid var(--border);
-  border-radius:17px;
+  border:1px solid var(--border);border-radius:17px;
   transition:transform .3s,border-color .3s,box-shadow .3s;
   animation:fadeUp .45s both;
 }
 .card:hover{
-  transform:translateY(-7px);
-  border-color:#ff30465c;
+  transform:translateY(-7px);border-color:#ff30465c;
   box-shadow:0 18px 35px #000a,0 0 19px #ff304610;
 }
 .card.holiday-card:hover{
   border-color:#1db77880;
   box-shadow:0 18px 35px #000a,0 0 19px #18b77820;
 }
-
-/* IMAGE STYLING */
 .photo{
-  height:205px;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(ellipse at 50% 45%,#333946,#12161f 75%);
-  display:grid;
-  place-items:center;
+  height:205px;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 45%,#333946,#12161f 75%);
+  display:grid;place-items:center;
 }
 .photo:after{
-  content:"";
-  position:absolute;
-  inset:0;
+  content:"";position:absolute;inset:0;
   pointer-events:none;
   background:linear-gradient(180deg,transparent 70%,#0c101642);
 }
 .photo img{
-  position:relative;
-  z-index:1;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  padding:11px;
-  transition:transform .4s;
+  position:relative;z-index:1;width:100%;height:100%;
+  object-fit:contain;padding:11px;transition:transform .4s;
 }
 .card:hover .photo img{transform:scale(1.055)}
-
-/* Soft background created from the same product photo */
 .photo .blurred{
-  position:absolute;
-  inset:-35px;
-  width:calc(100% + 70px);
-  height:calc(100% + 70px);
-  object-fit:cover;
-  padding:0;
+  position:absolute;inset:-35px;
+  width:calc(100% + 70px);height:calc(100% + 70px);
+  object-fit:cover;padding:0;
   filter:blur(35px) brightness(.3) saturate(1.25);
-  opacity:.65;
-  z-index:0;
-  transform:none!important;
+  opacity:.65;z-index:0;transform:none!important;
 }
-.photo .main-image{
-  z-index:1;
-  border-radius:16px;
-}
+.photo .main-image{z-index:1;border-radius:16px}
 .photo.photo-white{
   background:linear-gradient(140deg,#1d222d,#0e1118);
 }
 .photo.photo-white .main-image{
-  /* Darken the white photo background without altering the product file */
   mix-blend-mode:multiply;
   filter:brightness(1.16) contrast(1.1);
 }
 .photo.photo-white .blurred{opacity:.25}
 .photo.photo-white:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:#737b88;
-  opacity:.62;
-  z-index:0;
+  content:"";position:absolute;inset:0;
+  background:#737b88;opacity:.62;z-index:0;
 }
-.photo.photo-white .main-image{isolation:auto}
 .photo.photo-white:after{
   background:linear-gradient(180deg,transparent 55%,#0d101b4d);
 }
 .flag{
-  position:absolute;
-  top:10px;
-  left:10px;
-  z-index:5;
-  border-radius:30px;
-  padding:8px 11px;
+  position:absolute;top:10px;left:10px;z-index:5;
+  border-radius:30px;padding:8px 11px;
   background:linear-gradient(100deg,#ff4254,#cf0e2e);
-  font-size:9px;
-  font-weight:900;
+  font-size:9px;font-weight:900;
   box-shadow:0 3px 15px #0007;
 }
 .flag.green{
   background:linear-gradient(100deg,#067447,#13aa69);
 }
 .photo .fallback{
-  position:absolute;
-  z-index:2;
-  font-size:65px;
+  position:absolute;z-index:2;font-size:65px;
   filter:drop-shadow(0 12px 20px #0009);
 }
-
-/* PRODUCT INFO */
 .info{
-  padding:14px;
-  display:flex;
-  flex-direction:column;
-  flex:1;
+  padding:14px;display:flex;flex-direction:column;flex:1;
 }
 .category{
-  font-size:10px;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:.9px;
-  color:#ff6879;
+  font-size:10px;font-weight:900;text-transform:uppercase;
+  letter-spacing:.9px;color:#ff6879;
 }
 .holiday-card .category{color:#39d99c}
 .info h3{
-  font-size:14px;
-  line-height:1.35;
-  margin:8px 0;
-  min-height:38px;
+  font-size:14px;line-height:1.35;
+  margin:8px 0;min-height:38px;
 }
 .info p{
-  color:#a5adba;
-  font-size:11px;
-  line-height:1.6;
-  margin:0 0 14px;
-  flex:1;
+  color:#a5adba;font-size:11px;line-height:1.6;
+  margin:0 0 14px;flex:1;
 }
 .foot{
   border-top:1px solid var(--border);
-  padding-top:12px;
-  margin-top:auto;
+  padding-top:12px;margin-top:auto;
 }
 .shop{
-  color:#c5cad4;
-  font-size:10px;
-  margin-bottom:11px;
+  color:#c5cad4;font-size:10px;margin-bottom:11px;
 }
 .card .btn{
-  width:100%;
-  font-size:11px;
-  padding:12px 7px;
+  width:100%;font-size:11px;padding:12px 7px;
 }
 .empty{
-  display:none;
-  text-align:center;
-  color:#aab2bf;
-  padding:50px;
+  display:none;text-align:center;
+  color:#aab2bf;padding:50px;
 }
 
-/* CHRISTMAS SECTION */
+/* CHRISTMAS */
 .christmas{
-  position:relative;
-  overflow:hidden;
+  position:relative;overflow:hidden;
   border-top:1px solid #1a6d4b65;
   border-bottom:1px solid #1a6d4b65;
   background:
@@ -530,23 +378,16 @@ h2{
     radial-gradient(ellipse at 0% 90%,#a4142933,transparent 40%),
     linear-gradient(135deg,#0b1714,#10151b);
 }
-.christmas .wrap{
-  position:relative;
-  z-index:2;
-}
+.christmas .wrap{position:relative;z-index:2}
 .christmas-head{
-  display:flex;
-  align-items:center;
-  gap:25px;
+  display:flex;align-items:center;gap:25px;
   justify-content:space-between;
 }
 .christmas-head p{max-width:650px}
 .christmas h2 span{color:#ff4a5e}
 .holiday-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-  margin-top:30px;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;margin-top:30px;
 }
 .holiday-grid .card{
   background:linear-gradient(145deg,#15221c,#0e1515);
@@ -555,90 +396,56 @@ h2{
 .holiday-grid .photo{height:255px}
 .holiday-grid .info h3{min-height:auto}
 .flakes{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
 }
 .flake{
-  position:absolute;
-  top:-35px;
-  color:#fff;
-  opacity:.5;
-  animation:snow linear infinite;
-  user-select:none;
+  position:absolute;top:-35px;color:white;opacity:.5;
+  animation:snow linear infinite;user-select:none;
 }
 .christmas-glow{
-  position:absolute;
-  width:340px;height:340px;
-  border-radius:50%;
-  background:#0ab77320;
-  filter:blur(80px);
-  right:-80px;
-  top:50px;
+  position:absolute;width:340px;height:340px;
+  border-radius:50%;background:#0ab77320;
+  filter:blur(80px);right:-80px;top:50px;
 }
 
 /* ABOUT */
 .about-panel{
   padding:40px;
   background:linear-gradient(120deg,#26111b,#111620);
-  border:1px solid #ff304634;
-  border-radius:22px;
+  border:1px solid #ff304634;border-radius:22px;
 }
 .about-panel p{
-  color:#aeb6c3;
-  max-width:750px;
-  line-height:1.8;
+  color:#aeb6c3;max-width:750px;line-height:1.8;
 }
 .benefits{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-top:22px;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-top:22px;
 }
 .benefit{
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:25px;
-  background:#131820;
+  border:1px solid var(--border);border-radius:17px;
+  padding:25px;background:#131820;
 }
 .benefit i{font-size:28px;font-style:normal}
 .benefit h3{font-size:14px}
 .benefit p{
-  font-size:12px;
-  line-height:1.7;
-  color:#9ca5b3;
+  font-size:12px;line-height:1.7;color:#9ca5b3;
 }
 
 /* FOOTER */
 footer{
-  background:#050609;
-  border-top:1px solid var(--border);
+  background:#050609;border-top:1px solid var(--border);
   padding:40px 0;
 }
 .footer-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:22px;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:22px;
 }
-.footer-links{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-}
-.footer-links a{
-  color:#aeb6c3;
-  font-size:12px;
-}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:#aeb6c3;font-size:12px}
 .legal{
   border-top:1px solid var(--border);
-  padding-top:20px;
-  margin-top:28px;
-  font-size:11px;
-  color:#818b9a;
-  line-height:1.8;
+  padding-top:20px;margin-top:28px;
+  font-size:11px;color:#818b9a;line-height:1.8;
 }
 
 /* ANIMATIONS */
@@ -661,9 +468,7 @@ footer{
 @keyframes marquee{
   to{transform:translateX(-50%)}
 }
-@keyframes pulse{
-  50%{opacity:.4}
-}
+@keyframes pulse{50%{opacity:.4}}
 @keyframes snow{
   to{
     transform:translate3d(25px,900px,0) rotate(200deg);
@@ -705,22 +510,19 @@ footer{
   .filter{padding:10px 13px;font-size:11px}
   .filter i{font-size:16px}
   .grid,.holiday-grid{gap:10px}
-  .photo{height:170px}
-  .holiday-grid .photo{height:170px}
+  .photo,.holiday-grid .photo{height:170px}
   .info{padding:11px}
   .info h3{font-size:12px;min-height:32px}
   .info p{font-size:10px}
   .flag{font-size:8px;padding:6px 8px}
   .card .btn{font-size:9px;padding:11px 5px}
   .christmas-head{display:block}
-  .holiday-grid{grid-template-columns:repeat(2,1fr)}
   .about-panel{padding:25px}
   .benefits{grid-template-columns:1fr}
 }
 @media(max-width:390px){
   .search{width:115px}
-  .grid{grid-template-columns:1fr}
-  .holiday-grid{grid-template-columns:1fr}
+  .grid,.holiday-grid{grid-template-columns:1fr}
   .photo,.holiday-grid .photo{height:240px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -827,20 +629,19 @@ footer{
   <span><b>●</b> TECH GADGETS</span>
   <span>✦ GAMING SETUP</span>
   <span><b>●</b> ROOM DECOR</span>
-  <span>✦ AUTO & TRAVEL</span>
+  <span>✦ AUTO &amp; TRAVEL</span>
   <span><b>●</b> CHRISTMAS EDITION</span>
   <span>✦ NEXORA PICKS</span>
   <span><b>●</b> TECH GADGETS</span>
   <span>✦ GAMING SETUP</span>
   <span><b>●</b> ROOM DECOR</span>
-  <span>✦ AUTO & TRAVEL</span>
+  <span>✦ AUTO &amp; TRAVEL</span>
   <span><b>●</b> CHRISTMAS EDITION</span>
 </div>
 </div>
 
 <section id="kategorie">
 <div class="wrap">
-
   <span class="kicker">EXPLORE NEXORA</span>
   <h2>Odkrywaj kategorie</h2>
   <p class="sub">
@@ -870,16 +671,16 @@ footer{
       <i>🎄</i> Świąteczne
     </button>
   </div>
-
 </div>
 </section>
 
 <section id="produkty">
 <div class="wrap">
-
   <span class="kicker">THE NEXORA COLLECTION</span>
   <h2>Produkty warte odkrycia</h2>
   <p class="sub">
+    Odkryj gadżety technologiczne, akcesoria gamingowe,
+    oświetlenie LED, dekoracje do domu i produkty sezonowe.
     10 wybranych ofert z Costway i VEVOR.
     Aktualne ceny i dostępność sprawdzisz w sklepie.
   </p>
@@ -888,17 +689,14 @@ footer{
   <div class="empty" id="empty">
     Nie znaleziono produktów.
   </div>
-
 </div>
 </section>
 
 <section class="christmas" id="swiateczne">
-
 <div class="christmas-glow"></div>
 <div class="flakes" id="flakes" aria-hidden="true"></div>
 
 <div class="wrap">
-
   <span class="kicker">
     LIMITED SEASONAL EDITION
   </span>
@@ -918,13 +716,11 @@ footer{
   </div>
 
   <div class="holiday-grid" id="holidayGrid"></div>
-
 </div>
 </section>
 
 <section id="onas">
 <div class="wrap">
-
   <div class="about-panel">
     <span class="kicker">DISCOVER MORE</span>
     <h2>Odkrywaj to, co ciekawe.</h2>
@@ -947,7 +743,6 @@ footer{
         dodatki z różnych kategorii.
       </p>
     </div>
-
     <div class="benefit">
       <i>⚡</i>
       <h3>Wygodne odkrywanie</h3>
@@ -956,7 +751,6 @@ footer{
         produktów w jednym miejscu.
       </p>
     </div>
-
     <div class="benefit">
       <i>↗</i>
       <h3>Linki do ofert</h3>
@@ -966,7 +760,6 @@ footer{
       </p>
     </div>
   </div>
-
 </div>
 </section>
 
@@ -974,7 +767,6 @@ footer{
 
 <footer>
 <div class="wrap">
-
   <div class="footer-top">
     <a class="brand" href="#start">
       <div class="logo">N</div>
@@ -1001,23 +793,14 @@ footer{
     Zdjęcia pochodzą z zewnętrznych serwisów
     i mogą wymagać zgody na wykorzystanie.
   </div>
-
 </div>
 </footer>
 
 <script>
-
-/*
-  NEXORA PRODUCTS
-  whiteBackground:
-  true  = fotografia na białym tle, stosujemy
-          przyciemnienie i łagodniejsze wtopienie
-  false = fotografia z naturalnym tłem lub przezroczysta
-*/
-
+/* NEXORA PRODUCTS */
 const products = [
 {
-  name:"Lampa podłogowa LED z 4 półkami",
+  name:"Lampa podłogowa LED z 4 półkami Costway",
   cat:"Pokój",
   shop:"Costway",
   badge:"ROOM PICK",
@@ -1028,7 +811,7 @@ const products = [
   link:"https://securedeal.pro/a/rkP4NF2n1AhQkBB?dl=qFrgqmDP"
 },
 {
-  name:"Drukarka etykiet VEVOR 300 DPI",
+  name:"Drukarka termiczna etykiet VEVOR 300 DPI Bluetooth i USB",
   cat:"Tech",
   shop:"VEVOR",
   badge:"TECH PICK",
@@ -1039,7 +822,7 @@ const products = [
   link:"https://low-prices.eu/a/L9QylsQq54iKn63?dl=TxkxjuhE"
 },
 {
-  name:"Zestaw gwieździste niebo VEVOR 550",
+  name:"Zestaw światłowodowy gwieździste niebo VEVOR 550 RGBW",
   cat:"Pokój",
   shop:"VEVOR",
   badge:"STARLIGHT",
@@ -1050,18 +833,18 @@ const products = [
   link:"https://low-prices.eu/a/M8RzmizPGWiP8jV?dl=V1Nj4RY5"
 },
 {
-  name:"Biurko gamingowe VEVOR LED RGB",
+  name:"Biurko gamingowe VEVOR RGB LED z szufladami",
   cat:"Gaming",
   shop:"VEVOR",
   badge:"GAMING SETUP",
   icon:"🎮",
-  desc:"Czarne biurko komputerowe z podświetleniem LED i szufladami.",
+  desc:"Biurko gamingowe 120 × 50 cm z podświetleniem RGB LED i czterema szufladami.",
   image:"https://img.vevorstatic.com/pl/GDJXBGZDCTK4FT2B6001V2/goods_img_big-v2/fixed-rectangular-desk-m100-1.12.jpg?format=webp&timestamp=1754011470000",
   whiteBackground:true,
   link:"https://low-prices.eu/a/OYWBoivYo4Fj1Zv?dl=T7nDmggv"
 },
 {
-  name:"Fotel gamingowy LED RGB",
+  name:"Fotel gamingowy Costway LED RGB czerwony",
   cat:"Gaming",
   shop:"Costway",
   badge:"RGB PICK",
@@ -1072,29 +855,29 @@ const products = [
   link:"https://securedeal.pro/a/Z6kQDHQ8DMsNLvy?dl=p7S6090n"
 },
 {
-  name:"Szuflada-organizer pod biurko",
+  name:"Szuflada organizer pod biurko VEVOR",
   cat:"Dom",
   shop:"VEVOR",
   badge:"DESK SETUP",
   icon:"🗄️",
-  desc:"Wysuwana szuflada pod blat do akcesoriów i organizacji kabli.",
+  desc:"Wysuwany organizer montowany pod blatem biurka, do przechowywania drobnych akcesoriów.",
   image:"https://media.cdn.kaufland.de/product-images/2048x2048/321e60e61a1a328d1ffb6f2490a348fc.webp",
   whiteBackground:true,
   link:"https://low-prices.eu/a/R6ZGrH5Y8Bi0wgq?dl=0A6FKpNu"
 },
 {
-  name:"Torba bagażowa na dach VEVOR",
+  name:"Wodoodporna torba dachowa VEVOR na bagaż",
   cat:"Auto",
   shop:"VEVOR",
   badge:"AUTO & TRAVEL",
   icon:"🚘",
-  desc:"Wodoodporna torba dachowa do przewożenia dodatkowego bagażu.",
+  desc:"Wodoodporna torba bagażowa na dach samochodu z materiału PVC 840D.",
   image:"https://img.vevorstatic.com/us/CDHBJX20LFYCT09VHV0/original_img-v1/roof-cargo-bag-m100-1.2.jpg?format=webp&timestamp=1736938678000",
   whiteBackground:true,
   link:"https://low-prices.eu/a/VO4MytgB19HERZk?dl=aLHsJWRj"
 },
 {
-  name:"Sztuczna choinka jodła 225 cm",
+  name:"Sztuczna choinka wąska jodła Costway 225 cm",
   cat:"Świąteczne",
   shop:"Costway",
   badge:"CHRISTMAS PICK",
@@ -1116,7 +899,7 @@ const products = [
   link:"https://low-prices.eu/a/ADBk7CE0M2fOKgM?dl=sdXdwAo2"
 },
 {
-  name:"Ośnieżona choinka stołowa LED 64 cm",
+  name:"Ośnieżona choinka stołowa LED Costway 64 cm",
   cat:"Świąteczne",
   shop:"Costway",
   badge:"MINI CHRISTMAS",
@@ -1129,7 +912,6 @@ const products = [
 ];
 
 /* CARD RENDERER */
-
 const grid=document.getElementById("grid");
 const holidayGrid=document.getElementById("holidayGrid");
 const empty=document.getElementById("empty");
@@ -1138,7 +920,6 @@ let activeCategory="Wszystkie";
 let searchQuery="";
 
 function createCard(product,index){
-
   const card=document.createElement("article");
   card.className="card";
 
@@ -1185,7 +966,6 @@ function createCard(product,index){
   if(product.cat==="Świąteczne"){
     flag.classList.add("green");
   }
-
   flag.textContent=product.badge;
 
   photo.append(blurred,image,flag);
@@ -1225,11 +1005,8 @@ function createCard(product,index){
 }
 
 /* FILTERING */
-
 function render(){
-
   const filtered=products.filter(product=>{
-
     const matchesCategory=
       activeCategory==="Wszystkie" ||
       product.cat===activeCategory;
@@ -1258,9 +1035,7 @@ function render(){
 }
 
 document.querySelectorAll(".filter").forEach(button=>{
-
   button.addEventListener("click",()=>{
-
     activeCategory=button.dataset.cat;
 
     document.querySelectorAll(".filter").forEach(item=>{
@@ -1272,19 +1047,15 @@ document.querySelectorAll(".filter").forEach(button=>{
     document.getElementById("produkty")
       .scrollIntoView({behavior:"smooth"});
   });
-
 });
 
 document.getElementById("search")
   .addEventListener("input",event=>{
-
     searchQuery=event.target.value;
     render();
-
   });
 
 /* CHRISTMAS COLLECTION */
-
 products
   .filter(product=>product.cat==="Świąteczne")
   .forEach((product,index)=>{
@@ -1293,7 +1064,6 @@ products
 
 document.getElementById("showXmas")
   .addEventListener("click",()=>{
-
     activeCategory="Świąteczne";
     searchQuery="";
     document.getElementById("search").value="";
@@ -1309,13 +1079,10 @@ document.getElementById("showXmas")
   });
 
 /* ANIMATED SNOW */
-
 const flakes=document.getElementById("flakes");
 
 if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-
   for(let i=0;i<30;i++){
-
     const flake=document.createElement("span");
     flake.className="flake";
 
@@ -1331,7 +1098,6 @@ if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
 }
 
 render();
-
 </script>
 
 </body>
